@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Charles Ike · Portfolio
 
-## Getting Started
+Personal website built with **Next.js 16**, **React 19**, **Tailwind CSS 4** and **shadcn/ui**.
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build && npm start   # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All text (overview, experience, skills, projects, contact links) lives in
+`src/data/profile.ts`. Edit that one file to update the site.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Add GitHub / LinkedIn URLs under `profile.links` and they appear in the Contact section.
+- Add project screenshots to `public/projects/` and set `image: "/projects/name.png"` (and optionally `href`) on a project.
+- Replace `public/Charles-Ike-Full-Stack-Developer-CV.pdf` when the CV changes.
+- Set `profile.siteUrl` to the real domain once deployed (used for SEO metadata).
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app` – layout, global theme (light/dark tokens in `globals.css`), page
+- `src/components/sections` – Hero, Overview, Experience, Skills, Projects, Contact
+- `src/components/ui` – shadcn/ui components (button, badge, card, sheet, separator, tooltip)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Works out of the box on Vercel: import the repo, accept defaults, deploy.
