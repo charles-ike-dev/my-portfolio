@@ -20,7 +20,7 @@ export default function Home() {
         <Contact />
       </main>
       <footer className="border-t">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-8 text-sm text-muted-foreground sm:flex-row sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-8 text-sm text-muted-foreground sm:flex-row sm:px-6">
           <p>© 2026 {profile.name}. All rights reserved.</p>
           <p>Built with Next.js, React, Tailwind CSS &amp; shadcn/ui.</p>
         </div>

@@ -17,7 +17,7 @@ export function Section({
 }) {
   return (
     <section id={id} className={cn("py-20 sm:py-24", className)}>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="mb-12 max-w-2xl">
           <p className="mb-3 flex items-center gap-2 text-sm font-semibold tracking-wide text-brand uppercase">
             <span className="h-px w-8 bg-brand" />

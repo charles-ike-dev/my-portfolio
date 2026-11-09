@@ -15,7 +15,7 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:48px_48px] opacity-40 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]"
       />
-      <div className="mx-auto max-w-6xl px-4 pt-12 pb-16 sm:px-6 sm:pt-28">
+      <div className="mx-auto max-w-7xl px-4 pt-12 pb-16 sm:px-6 sm:pt-28">
         <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
           <div>
             <Image
