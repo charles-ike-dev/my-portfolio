@@ -1,8 +1,8 @@
-import { ArrowUpRight, Briefcase, Mail, MapPin } from "lucide-react"
+import { ArrowUpRight, Briefcase, Check, Mail, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { CopyEmail } from "@/components/copy-email"
 import { Section } from "@/components/section"
-import { contactVisibility, profile } from "@/data/profile"
+import { contactVisibility, profile, services } from "@/data/profile"
 
 function LinkedinIcon({ className }: { className?: string }) {
   return (
@@ -23,7 +23,7 @@ export function Contact() {
           aria-hidden
           className="pointer-events-none absolute -top-24 -right-24 size-80 rounded-full bg-brand/30 blur-3xl"
         />
-        <div className="relative grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:items-end">
+        <div className="relative grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:items-center">
           <div>
             <p className="max-w-xl text-lg opacity-85">
               Whether you are hiring for a full-time role, need a contractor for a project, or want a second pair
@@ -39,36 +39,66 @@ export function Contact() {
               {showEmail && <CopyEmail email={profile.email} />}
             </div>
           </div>
-          <ul className="space-y-3">
-            <li className="flex items-center gap-3">
-              <Briefcase className="size-4 shrink-0 opacity-70" />
-              <a href={profile.links.upwork} target="_blank" rel="noreferrer" className="hover:underline">
-                Upwork profile
-              </a>
-            </li>
-            {showLinkedin && (
-              <li className="flex items-center gap-3">
-                <LinkedinIcon className="size-4 shrink-0 opacity-70" />
-                <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hover:underline">
-                  LinkedIn profile
-                </a>
-              </li>
-            )}
-            {showEmail && (
-              <li className="flex items-center gap-3">
-                <Mail className="size-4 shrink-0 opacity-70" />
-                <a href={`mailto:${profile.email}`} className="hover:underline">
-                  {profile.email}
-                </a>
-              </li>
-            )}
-            <li className="flex items-center gap-3">
-              <MapPin className="size-4 shrink-0 opacity-70" />
-              <span>
-                {profile.location} <span className="opacity-70">· {profile.locationNote}</span>
-              </span>
-            </li>
-          </ul>
+          <div className="rounded-xl border border-white/15 bg-white/[0.06] p-6 backdrop-blur-sm dark:border-black/10 dark:bg-black/[0.04]">
+            <div>
+              <p className="text-xs font-semibold tracking-wide uppercase opacity-60">Open to</p>
+              <div className="mt-2.5 flex flex-wrap gap-2">
+                {["Full-time", "Contract", "Freelance"].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full bg-brand/20 px-3 py-1 text-sm font-medium ring-1 ring-brand/40"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <p className="text-xs font-semibold tracking-wide uppercase opacity-60">I can help with</p>
+              <ul className="mt-2.5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+                {services.map((s) => (
+                  <li key={s.title} className="flex items-center gap-2">
+                    <Check className="size-3.5 shrink-0 text-brand" strokeWidth={3} />
+                    {s.title}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-6 border-t border-white/15 pt-5 dark:border-black/10">
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center gap-3">
+                  <MapPin className="size-4 shrink-0 opacity-70" />
+                  <span>
+                    {profile.location} <span className="opacity-70">· {profile.locationNote}</span>
+                  </span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Briefcase className="size-4 shrink-0 opacity-70" />
+                  <a href={profile.links.upwork} target="_blank" rel="noreferrer" className="hover:underline">
+                    Upwork profile
+                  </a>
+                </li>
+                {showLinkedin && (
+                  <li className="flex items-center gap-3">
+                    <LinkedinIcon className="size-4 shrink-0 opacity-70" />
+                    <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hover:underline">
+                      LinkedIn profile
+                    </a>
+                  </li>
+                )}
+                {showEmail && (
+                  <li className="flex items-center gap-3">
+                    <Mail className="size-4 shrink-0 opacity-70" />
+                    <a href={`mailto:${profile.email}`} className="hover:underline">
+                      {profile.email}
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </Section>
