@@ -16,13 +16,28 @@ const accents: Record<Project["accent"], string> = {
 function Cover({ project }: { project: Project }) {
   if (project.image) {
     return (
-      <Image
-        src={project.image}
-        alt={project.title}
-        width={1200}
-        height={675}
-        className="aspect-video w-full object-cover"
-      />
+      <div className="border-b bg-muted">
+        <div className="flex items-center gap-1.5 border-b bg-card px-3 py-2">
+          <span className="size-2 rounded-full bg-red-400/80" />
+          <span className="size-2 rounded-full bg-amber-400/80" />
+          <span className="size-2 rounded-full bg-emerald-400/80" />
+          {project.href && (
+            <span className="ml-2 truncate rounded bg-muted px-2 py-0.5 text-[11px] text-muted-foreground">
+              {project.href.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+            </span>
+          )}
+        </div>
+        <div className="overflow-hidden">
+          <Image
+            src={project.image}
+            alt={`${project.client} homepage`}
+            width={1440}
+            height={900}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="aspect-[16/10] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        </div>
+      </div>
     )
   }
   return (
@@ -52,22 +67,22 @@ export function Projects() {
       id="projects"
       eyebrow="Projects"
       title="Selected work"
-      intro="A few of the systems I have built and improved. Client code is private, so these are summaries of the work and the results."
+      intro="A few of the products and organisations I have built for. Client code is private, so each card summarises my part of the work and links to the live site."
       className="bg-muted/40"
     >
       <div className="grid gap-6 md:grid-cols-2">
         {projects.map((p) => (
-          <Card key={p.title} className="group gap-0 overflow-hidden py-0 transition-shadow hover:shadow-lg">
+          <Card
+            key={p.title}
+            className={cn(
+              "group gap-0 overflow-hidden py-0 transition-shadow hover:shadow-lg",
+              p.featured && "md:col-span-2 md:grid md:grid-cols-[1.3fr_1fr]",
+            )}
+          >
             <Cover project={p} />
             <CardContent className="flex flex-1 flex-col p-6">
-              <h3 className="flex items-center justify-between gap-2 text-xl font-semibold">
-                {p.title}
-                {p.href && (
-                  <a href={p.href} target="_blank" rel="noreferrer" aria-label={`Open ${p.title}`}>
-                    <ArrowUpRight className="size-5 text-muted-foreground transition-colors group-hover:text-brand" />
-                  </a>
-                )}
-              </h3>
+              <p className="text-sm font-medium text-brand">{p.client}</p>
+              <h3 className="mt-1 text-xl font-semibold">{p.title}</h3>
               <p className="mt-2 text-muted-foreground">{p.summary}</p>
               <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm font-medium">
                 {p.outcomes.map((o) => (
@@ -83,6 +98,16 @@ export function Projects() {
                   </Badge>
                 ))}
               </div>
+              {p.href && (
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-foreground underline-offset-4 hover:text-brand hover:underline"
+                >
+                  {p.linkLabel ?? "Visit site"} <ArrowUpRight className="size-4" />
+                </a>
+              )}
             </CardContent>
           </Card>
         ))}

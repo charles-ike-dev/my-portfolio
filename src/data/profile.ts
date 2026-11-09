@@ -179,8 +179,8 @@ export const skills = [
   { group: "Data & Cloud", items: ["PostgreSQL", "MySQL", "MongoDB", "Supabase", "Prisma", "AWS", "Docker"] },
 ];
 
-// Case studies drawn from the roles above. Add `image` (a path in /public)
-// and `href` (a live link or repo) to any project when you have them.
+// Case studies drawn from the roles above. `image` is a homepage screenshot in
+// /public/projects; `href` is the live site it links to.
 export type Project = {
   title: string;
   client: string;
@@ -190,6 +190,8 @@ export type Project = {
   accent: "teal" | "navy" | "amber" | "violet";
   image?: string;
   href?: string;
+  linkLabel?: string;
+  featured?: boolean;
 };
 
 export const projects: Project[] = [
@@ -197,10 +199,14 @@ export const projects: Project[] = [
     title: "Medical RAG agent rescue",
     client: "Curalith · Healthcare AI",
     summary:
-      "Took over an inherited medical question-answering agent and made its answers trustworthy: fixed the ingestion, chunking and retrieval pipeline and tightened the prompts around medical safety.",
+      "Took over an inherited clinical evidence assistant and made its answers trustworthy: fixed the ingestion, chunking and retrieval pipeline and tightened the prompts around medical safety, so every claim is cited to its source.",
     outcomes: ["Better retrieval accuracy", "Fewer hallucinations", "Fully documented pipeline"],
-    stack: ["Python", "FastAPI", "LangChain", "Pinecone", "OpenAI", "Next.js"],
+    stack: ["Python", "FastAPI", "LangChain", "Pinecone", "OpenAI", "Next.js", "shadcn/ui"],
     accent: "teal",
+    image: "/projects/curalith.jpg",
+    href: "https://curalith-5nyr1nib7-curalith.vercel.app/",
+    linkLabel: "View live app",
+    featured: true,
   },
   {
     title: "Warehouse operations dashboards",
@@ -210,6 +216,9 @@ export const projects: Project[] = [
     outcomes: ["Faster order processing", "More accurate reporting", "Less manual work"],
     stack: ["Next.js", "React Query", "Node.js", "Prisma", "PostgreSQL", "Supabase"],
     accent: "navy",
+    image: "/projects/hiqos.jpg",
+    href: "https://www.hiqos.net/",
+    linkLabel: "hiqos.net",
   },
   {
     title: "Workforce analytics reporting",
@@ -219,15 +228,33 @@ export const projects: Project[] = [
     outcomes: ["Automated reporting", "Cleaner employee data", "Modernised frontend"],
     stack: ["React", "Next.js", "ASP.NET", "AWS"],
     accent: "violet",
+    image: "/projects/clarion.jpg",
+    href: "https://www.clarionhg.com/",
+    linkLabel: "clarionhg.com",
   },
   {
-    title: "Digital care records",
-    client: "Newcross Healthcare · J & R Care",
+    title: "Digital care-support systems",
+    client: "Newcross Healthcare UK",
     summary:
-      "Care-support systems for case notes, care plans, safeguarding and incident tracking, plus tools for shift management and staff communication.",
-    outcomes: ["Simpler reporting workflows", "Accurate safeguarding records", "Smoother shift coordination"],
-    stack: ["React", "Node.js", "MongoDB", "WordPress", "PHP", "AWS"],
+      "Care-support platforms for case notes, care plans, safeguarding records and team communication, with simpler reporting workflows for staff.",
+    outcomes: ["Less admin work", "Faster reporting", "Better safeguarding records"],
+    stack: ["React", "Redux Toolkit", "Node.js", "Express", "MongoDB", "AWS"],
     accent: "amber",
+    image: "/projects/newcross.jpg",
+    href: "https://www.newcrosshealthcare.com/",
+    linkLabel: "newcrosshealthcare.com",
+  },
+  {
+    title: "Care records & shift tools",
+    client: "J & R Care Ltd",
+    summary:
+      "Digital record systems for care documentation, safeguarding and incident tracking, plus practical tools for shift management and staff communication.",
+    outcomes: ["Accurate incident tracking", "Smoother shift coordination", "Improved workflows"],
+    stack: ["WordPress", "PHP", "JavaScript", "MySQL", "Cloudflare", "Mailgun"],
+    accent: "amber",
+    image: "/projects/jandr.jpg",
+    href: "https://jandrcareltd.co.uk/",
+    linkLabel: "jandrcareltd.co.uk",
   },
 ];
 
