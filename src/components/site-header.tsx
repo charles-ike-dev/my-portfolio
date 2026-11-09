@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
@@ -13,9 +14,13 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#top" className="flex items-center gap-2.5 font-semibold tracking-tight">
-          <span className="grid size-9 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-            {profile.initials}
-          </span>
+          <Image
+            src="/charles-ike-avatar.jpg"
+            alt=""
+            width={72}
+            height={72}
+            className="size-9 rounded-full object-cover ring-2 ring-brand/40"
+          />
           <span>{profile.name}</span>
         </a>
 
