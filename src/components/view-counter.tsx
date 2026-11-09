@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react"
 import { Eye } from "lucide-react"
+import { viewsBaseline } from "@/data/profile"
 
 const SESSION_KEY = "portfolio:viewed"
 
-// Counts one view per browser session, then shows the running total.
-// Renders nothing if the counter API is not configured or unreachable.
+// Counts one view per browser session, then shows baseline + stored total.
+// If the counter API is not configured or unreachable, it shows the baseline.
 export function ViewCounter() {
-  const [views, setViews] = useState<number | null | undefined>(undefined)
+  const [views, setViews] = useState<number | undefined>(undefined)
 
   useEffect(() => {
     let counted = false
@@ -18,17 +19,15 @@ export function ViewCounter() {
     fetch("/api/views", { method: counted ? "GET" : "POST", cache: "no-store" })
       .then((r) => (r.ok ? r.json() : { views: null }))
       .then((d: { views: number | null }) => {
-        setViews(typeof d.views === "number" ? d.views : null)
+        setViews(viewsBaseline + (typeof d.views === "number" ? d.views : 0))
         if (!counted && typeof d.views === "number") {
           try {
             sessionStorage.setItem(SESSION_KEY, "1")
           } catch {}
         }
       })
-      .catch(() => setViews(null))
+      .catch(() => setViews(viewsBaseline))
   }, [])
-
-  if (views === null) return null
 
   return (
     <div

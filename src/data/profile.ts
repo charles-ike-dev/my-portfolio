@@ -32,6 +32,10 @@ export const contactVisibility = {
   linkedin: isOn(process.env.NEXT_PUBLIC_SHOW_LINKEDIN),
 };
 
+// Website views counter starts from this number; real visits are added on top.
+// Override with NEXT_PUBLIC_VIEWS_BASELINE.
+export const viewsBaseline = Number(process.env.NEXT_PUBLIC_VIEWS_BASELINE ?? 135) || 0;
+
 export const stats = [
   { value: "6+ yrs", label: "Software engineering since 2020" },
   { value: "150+", label: "Associates led in warehouse operations" },

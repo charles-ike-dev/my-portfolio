@@ -29,7 +29,7 @@ The hero shows the total number of site views (one per browser session), stored 
 [Upstash Redis](https://upstash.com) (free tier). On Vercel, add the **Upstash for Redis**
 integration from the Marketplace and it sets `KV_REST_API_URL` / `KV_REST_API_TOKEN`
 automatically; elsewhere set `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`.
-Until it is configured, the counter simply stays hidden. API: `GET /api/views`
+The counter starts at 135 (`NEXT_PUBLIC_VIEWS_BASELINE`) and real visits are added on top; until storage is configured it shows 135. API: `GET /api/views`
 returns the total, `POST /api/views` adds one.
 
 ## Tech stack icons
