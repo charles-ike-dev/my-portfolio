@@ -179,13 +179,19 @@ export const earlierRoles: Job[] = [
   },
 ];
 
+// Each name must have an icon in src/components/skill-icon.tsx.
 export const skills = [
-  { group: "Frontend", items: ["React", "Next.js", "Vue.js", "TypeScript", "Tailwind CSS", "Redux"] },
-  { group: "Backend", items: ["Node.js", "Python", "FastAPI", "Express", "ASP.NET", "PHP", "REST", "GraphQL"] },
-  { group: "Mobile", items: ["React Native", "Flutter"] },
-  { group: "E-commerce & CMS", items: ["Shopify", "WooCommerce", "WordPress", "Stripe"] },
+  { group: "Languages", items: ["TypeScript", "JavaScript", "Python", "PHP", "Java", "C++", "C#"] },
+  { group: "Frontend", items: ["React", "Next.js", "Vue.js", "Tailwind CSS", "shadcn/ui"] },
+  { group: "State & data fetching", items: ["Redux", "Pinia", "RxJS", "React Query"] },
+  { group: "Backend & APIs", items: ["Node.js", "Express", "NestJS", "FastAPI", "ASP.NET", "REST", "GraphQL"] },
+  { group: "Mobile", items: ["React Native", "Expo", "Flutter"] },
+  { group: "Databases & ORMs", items: ["PostgreSQL", "MySQL", "MongoDB", "Supabase", "Prisma", "Drizzle ORM"] },
   { group: "AI & RAG", items: ["OpenAI API", "Anthropic API", "LangChain", "LlamaIndex", "Pinecone", "Vector DBs"] },
-  { group: "Data & Cloud", items: ["PostgreSQL", "MySQL", "MongoDB", "Supabase", "Prisma", "AWS", "Docker"] },
+  { group: "Cloud & DevOps", items: ["AWS", "Google Cloud", "Firebase", "Docker"] },
+  { group: "E-commerce", items: ["Shopify", "WooCommerce", "Stripe"] },
+  { group: "CMS", items: ["WordPress", "Sanity", "Contentful", "Strapi"] },
+  { group: "Automation & CRM", items: ["n8n", "Zapier", "HubSpot"] },
 ];
 
 // Case studies drawn from the roles above. `image` is a homepage screenshot in

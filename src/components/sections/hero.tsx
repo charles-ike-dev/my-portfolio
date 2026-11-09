@@ -1,5 +1,6 @@
 import { ArrowRight, Download, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ViewCounter } from "@/components/view-counter"
 import { profile, stats } from "@/data/profile"
 
 export function Hero() {
@@ -16,12 +17,15 @@ export function Hero() {
       <div className="mx-auto max-w-6xl px-4 pt-20 pb-16 sm:px-6 sm:pt-28">
         <div className="grid items-center gap-12 lg:grid-cols-[1.35fr_1fr]">
         <div>
+        <div className="flex flex-wrap items-center gap-2">
         <div className="inline-flex items-center gap-2 rounded-full border bg-card/70 px-3 py-1.5 text-sm text-muted-foreground shadow-xs">
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-60" />
-            <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
-          </span>
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-60" />
+              <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+            </span>
           {profile.availability}
+          </div>
+          <ViewCounter />
         </div>
 
         <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">

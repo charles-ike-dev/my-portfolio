@@ -23,6 +23,20 @@ All text (overview, experience, skills, projects, contact links) lives in
 - Replace `public/Charles-Ike-Full-Stack-Developer-CV.pdf` when the CV changes.
 - Set `profile.siteUrl` to the real domain once deployed (used for SEO metadata).
 
+## Website views counter
+
+The hero shows the total number of site views (one per browser session), stored in
+[Upstash Redis](https://upstash.com) (free tier). On Vercel, add the **Upstash for Redis**
+integration from the Marketplace and it sets `KV_REST_API_URL` / `KV_REST_API_TOKEN`
+automatically; elsewhere set `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`.
+Until it is configured, the counter simply stays hidden. API: `GET /api/views`
+returns the total, `POST /api/views` adds one.
+
+## Tech stack icons
+
+Skill groups live in `src/data/profile.ts`; each skill's icon is mapped in
+`src/components/skill-icon.tsx` (brand logos from Simple Icons, neutral icons for the rest).
+
 ## Structure
 
 - `src/app` – layout, global theme (light/dark tokens in `globals.css`), page
