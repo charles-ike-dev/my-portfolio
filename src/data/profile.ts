@@ -13,7 +13,7 @@ export const profile = {
   links: {
     upwork: "https://www.upwork.com/freelancers/~01be5a1c3786f57374",
     github: "", // TODO: add GitHub profile URL
-    linkedin: "", // TODO: add LinkedIn profile URL
+    linkedin: "https://www.linkedin.com/in/charles-ike-536384449/",
   },
   tagline:
     "I build reliable, scalable web and mobile applications, and bring AI into them with Retrieval-Augmented Generation that actually gets the answer right.",
@@ -21,6 +21,15 @@ export const profile = {
     "I build reliable, scalable web and mobile applications, with deep experience in AI integration and Retrieval-Augmented Generation (RAG). Since 2020 I have shipped internal tools, dashboards, reporting automation and digital record systems for healthcare, workforce analytics and large-scale logistics.",
     "Whether you are starting from scratch or improving an existing product, I turn your idea into a working solution that meets your business goals, with clean code, clear communication and on-time delivery.",
   ],
+};
+
+// Contact visibility is controlled by environment variables (see .env.example).
+// Both default to hidden; set the variable to "true" to show the item.
+const isOn = (v: string | undefined) => v?.trim().toLowerCase() === "true";
+
+export const contactVisibility = {
+  email: isOn(process.env.NEXT_PUBLIC_SHOW_EMAIL),
+  linkedin: isOn(process.env.NEXT_PUBLIC_SHOW_LINKEDIN),
 };
 
 export const stats = [
